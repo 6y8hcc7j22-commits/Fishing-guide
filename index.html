@@ -109,6 +109,7 @@ button{font:inherit;color:inherit;border:0;background:none;cursor:pointer;paddin
 .hidden{display:none}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
+<script data-goatcounter="https://fishing-guide.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </head>
 <body>
 <div class="app">
@@ -258,6 +259,7 @@ SECTIONS.forEach(function(s){var a=FINFO[s.id];if(!a)return;s.items.forEach(func
 var FSTATS={"gold":[["Mage HP","DEF"],["Mage HP","DEF"],["Mage ATK","DEF"],["ATK","Support HP","Reflect DMG"],["Support ATK","ATK"],["Mage HP"],["ATK","Support HP","Healing Effect"],["Mage ATK"],["Warrior ATK"],["Warrior ATK","DMG Increase"],["Marksman ATK","HP"],["Marksman HP","HP"],["Mage ATK","DEF"],["Mage ATK","DEF"],["Support ATK","ATK","Knockback Effect"],["Marksman ATK","HP"],["Warrior HP"],["Warrior HP","DMG Reduction"],["Warrior ATK","DMG Increase"],["Marksman ATK"],["Marksman HP"]],"moon":[["Support ATK","ATK","Physical DMG Boost"],["Mage ATK","DEF"],["Marksman HP","HP"],["Marksman ATK","HP"],["Marksman HP","HP"],["Support ATK","ATK","Crit DMG"],["Marksman ATK","HP"],["ATK","Support HP","Magic DMG Boost"],["Warrior HP","DMG Reduction"],["Warrior ATK","DMG Increase"],["Warrior ATK","DMG Increase"],["Mage HP","DEF"],["Mage HP","DEF"],["Warrior HP","DMG Reduction","Melee DMG Boost"],["Warrior HP","DMG Reduction"],["Marksman HP","HP","Lifesteal"]],"snow":[["Warrior HP","DMG Reduction"],["Warrior HP","DMG Increase","DMG Reduction"],["Mage HP","DEF"],["Mage ATK","DEF"],["Warrior ATK","DMG Increase"],["Mage HP","DEF"],["Mage HP","DEF"],["Marksman ATK","HP"],["Warrior HP","DMG Reduction"],["Marksman HP","HP","Knockback Resist"],["Support ATK","ATK","Ranged DMG Boost"],["ATK","Support HP","Melee DMG Boost"],["Mage ATK","DEF","MOV SPD"],["Marksman HP","HP"],["Warrior ATK","ATK SPD","DMG Increase"],["Marksman ATK","HP","Melee DMG Reduction"],["Mage ATK","DEF"],["ATK","Support HP","Crit Rate"]],"desert":[["Mage HP","DEF"],["Marksman HP","HP","Ranged DMG Reduction"],["Marksman HP","HP"],["Support ATK","ATK","ATK SPD"],["ATK","Support HP","DMG Increase"],["Marksman HP","HP"],["Support ATK","ATK","Healing Effect"],["Marksman ATK","HP"],["Warrior ATK","DMG Increase","Magic DMG Boost"],["Marksman ATK","HP","Anti-Crit Rate"],["Mage HP","DEF","Melee DMG Reduction"],["Warrior ATK","DMG Increase"],["Warrior HP","Crit DMG","DMG Reduction"],["Mage ATK","DEF","HP Regen"],["Mage ATK","DEF"],["Warrior HP","DMG Reduction","Physical DMG Boost"],["Warrior HP","DMG Reduction"]],"frost":[["Mage HP","DEF","Ranged DMG Reduction"],["Mage ATK","DEF","Anti-Crit Rate"],["Marksman HP","HP"],["Marksman ATK","HP","MOV SPD"],["ATK","Support HP","Physical DMG Boost"],["Warrior HP","Knockback Effect","DMG Reduction"],["Warrior HP","DMG Reduction"],["Warrior HP","DMG Reduction"],["Support ATK","ATK","Reflect DMG"],["Marksman HP","HP"],["Mage HP","DEF"],["Marksman HP","HP","Physical RES"],["Mage ATK","DEF"],["Marksman ATK","HP"],["Warrior ATK","DMG Increase"],["Warrior ATK","Healing Effect","DMG Increase"],["Support ATK","ATK","Magic DMG Boost"],["Marksman ATK","HP"],["ATK","Support HP","Knockback Effect"]],"jungle":[["Mage HP","DEF"],["Mage ATK","DEF","Receive Healing"],["Mage ATK","DEF","Magic RES"],["Mage HP","DEF"],["Marksman ATK","HP"],["Warrior HP","DMG Reduction"],["Warrior HP","DMG Reduction"],["Warrior ATK","ATK SPD","DMG Increase"],["Warrior HP","DMG Reduction","Melee DMG Boost"],["Warrior ATK","DMG Increase"],["Mage ATK","DEF"],["Marksman HP","HP"],["ATK","Support HP","Crit DMG"],["Support HP","ATK","Ranged DMG Boost"],["Marksman ATK","HP","Melee DMG Reduction"],["Marksman HP","HP","Lifesteal"],["Mage HP","DEF","DMG Reduction"],["Support ATK","ATK","Crit Rate"],["Marksman HP","HP"]],"idyllic":[["Mage HP","DEF"],["Mage ATK","DEF","Magic RES"],["Mage ATK","DEF"],["Support ATK","ATK"],["Mage HP","DEF","Melee DMG Reduction"],["Marksman HP","HP"],["Support ATK","ATK","Crit DMG"],["Support ATK","ATK","Melee DMG Boost"],["Warrior HP","DMG Reduction","Heavy Injury Effect"],["ATK","Support HP","Crit Rate"],["Warrior HP","DMG Reduction"],["Mage HP","DEF","Receive Healing"],["Marksman ATK","HP","SPD Reduction RES"],["Marksman ATK","HP"],["Marksman HP","HP","Crit DMG RES"],["Warrior ATK","DMG Increase"],["Warrior ATK","DMG Increase"],["Marksman HP","HP","MOV SPD"],["ATK","Support HP","Magic DMG Boost"],["Warrior ATK","Knockback Effect","DMG Increase"]]};
 SECTIONS.forEach(function(s){var a=FSTATS[s.id];if(!a)return;s.items.forEach(function(it,i){if(a[i])it.stats=a[i];});});
 function TST(x){var m=/^(Warrior|Marksman|Mage|Support) (HP|ATK)$/.exec(x);return m?T(m[1])+' '+T(m[2]):T(x);}
+function track(name){try{if(window.goatcounter&&window.goatcounter.count)window.goatcounter.count({path:name,title:name,event:true});}catch(e){}}
 var KEY='archive-guide-v1';
 try{var saved=JSON.parse(localStorage.getItem(KEY)||'null');
  if(saved)SECTIONS.forEach(function(s){var a=saved[s.id];if(a)s.items.forEach(function(it,i){it.on=!!a[i];});});}catch(e){}
@@ -582,7 +584,7 @@ function showList(){
     var c=count(s),b=document.createElement('button');
     b.className='card'+(c===s.total?' done':'');
     b.innerHTML='<div class="art '+s.art+'"></div><div class="badge">'+c+'/'+s.total+'</div><div class="title">'+T(s.name)+'</div>';
-    b.onclick=function(){showDetail(s);window.scrollTo(0,0);};
+    b.onclick=function(){track('level/'+s.name);showDetail(s);window.scrollTo(0,0);};
     panel.appendChild(b);
   });
 }
@@ -640,6 +642,7 @@ function metaHtml(f){
   return mrow('Rarity',RAR[f.c])+(f.type?mrow('Type',f.type):'')+mrow('Set',f.g)+mrow('Set bonus',f.b.join(', '))+mrow('Where to find','to be added')+mrow('Notes','to be added');
 }
 function openPop(f,s){
+  track((f.sid==='collectibles'?'item/':'fish/')+f.t);
   var ov=document.createElement('div');ov.className='ov';
   ov.innerHTML='<div class="pop" role="dialog"><div class="tile im t-'+f.c+'">'+fishSvg(f)+'</div><h2>'+T(f.t)+'</h2><div class="meta">'+metaHtml(f)+'</div><div class="btns"><button class="sec" id="cl">'+T('Close')+'</button><button id="tg"></button></div></div>';
   function lab(){ov.querySelector('#tg').textContent=T(f.on?'Mark as not obtained':'Mark as obtained');}
@@ -661,7 +664,7 @@ function refreshUI(){
 }
 function closeMenu(){lmenu.hidden=true;lbtn.setAttribute('aria-expanded','false');}
 function setLang(l){
-  lang=l;try{localStorage.setItem('archive-lang',l);}catch(e){}
+  lang=l;track('lang/'+l);try{localStorage.setItem('archive-lang',l);}catch(e){}
   closeMenu();refreshUI();
   var o=document.querySelectorAll('.ov');for(var i=0;i<o.length;i++)o[i].remove();
   var y=window.scrollY;if(current&&current.groups)showGold(current);else showList();window.scrollTo(0,y);
